@@ -1,0 +1,16 @@
+.explorer-w {
+    height: 100%;
+    width: 100%;
+}
+
+.node-parent {
+    visibility: hidden;
+}
+
+.edge-arrow {
+    fill: var(--arrow-line) !important;
+}
+
+.v-edge {
+    stroke: var(--arrow-line) !important;
+}

@@ -1,0 +1,19 @@
+.switch-label {
+    background: var(--button-bg);
+    padding: 0 10px;
+    border-radius: 4px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--button-text);
+    display: flex;
+    column-gap: 10px;
+}
+
+.switch-icon {
+    height: 13px;
+    width: 13px;
+}

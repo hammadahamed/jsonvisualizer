@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.containers-wrapper {
+    margin-top: 80px;
+    gap: 50px;
+    display: flex;
+
+
+
+    @media only screen and (max-width: 700px) {
+        flex-direction: column;
+    }
+}
+
+.hp-c-w {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+$containerHeight: 300px;
+
+.hp-c {
+    background-color: rgb(29, 29, 29);
+    height: $containerHeight;
+    width: $containerHeight;
+    border-radius: 20px;
+
+    img {
+        height: $containerHeight;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+}
+
+.border-div {
+    border: 3px dashed rgb(41, 41, 41);
+    border-radius: 20px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+.module-button {
+    align-content: center;
+    align-items: center;
+    border-radius: 40px;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px;
+    justify-content: center;
+    overflow: visible;
+    padding: 5px 25px;
+    position: relative;
+    text-decoration: none;
+    width: min-content;
+    height: min-content;
+    font-weight: 600;
+    font-size: 15px;
+    transition-duration: 400ms;
+    text-decoration: none !important;
+    color: white;
+}
+
+.module-button:hover {
+    cursor: pointer;
+
+
+    .arrow-right {
+        transition: all .3s ease-in-out;
+        translate: 8px 0px;
+    }
+}
+
+.compare {
+    background: linear-gradient(102deg, #7068de 0%, hsl(203, 59%, 61%) 100%);
+}
+
+.visualize {
+    background: linear-gradient(263deg, #5656b8 0%, hsl(318, 57%, 65%) 100%);
+}

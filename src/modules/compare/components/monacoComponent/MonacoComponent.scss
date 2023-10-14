@@ -1,0 +1,100 @@
+.cmp-editor {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+.editor-top {
+    display: flex;
+    column-gap: 2px;
+    background-color: var(--bg-color-2);
+}
+
+.editor-top>.right,
+.left {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    column-gap: 10px;
+    height: 100%;
+    position: relative;
+    background-color: var(--bg-secondary);
+}
+
+.right {
+    width: calc(50% - 14px);
+}
+
+.left {
+    width: calc(50% + 14px);
+}
+
+.revert-button {
+    height: 14px;
+    width: 14px;
+    translate: 0 -1px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* 
+.right > .revert-button {
+  color: var(--insert-char-color);
+}
+
+.left > .revert-button {
+  color: var(--delete-char-color);
+} */
+
+/* OVERRIDES - DEFAULT MONACO DIFF LINE BG COLORS */
+/* 
+.cmp-editor > .monaco-editor .line-insert,
+.monaco-diff-editor .line-insert {
+  background-color: rgba(227, 75, 204, 0.104);
+}
+
+.monaco-editor .line-delete,
+.monaco-diff-editor .line-delete {
+  background-color: rgba(227, 75, 212, 0.104);
+}
+
+.monaco-editor .line-insert,
+.monaco-editor .char-insert {
+  background-color: rgba(30, 153, 63, 0.204);
+}
+.monaco-editor .char-delete,
+.monaco-diff-editor .char-delete {
+  background-color: rgba(227, 75, 212, 0.104);
+} */
+
+.line-insert {
+    background-color: var(--insert-line-color) !important;
+    opacity: 0.1;
+}
+
+.char-insert {
+    background-color: var(--insert-char-color) !important;
+    opacity: 0.3;
+}
+
+.line-delete {
+    background-color: var(--delete-line-color) !important;
+    opacity: 0.1;
+}
+
+.char-delete {
+    background-color: var(--delete-char-color) !important;
+    opacity: 0.3;
+}
+
+.line-numbers {
+    opacity: 0.55;
+    font-size: 11px;
+    color: var(--edtr-line-number-color) !important;
+}
+
+.monaco-editor .lines-content .core-guide-indent {
+    box-shadow: none !important;
+}

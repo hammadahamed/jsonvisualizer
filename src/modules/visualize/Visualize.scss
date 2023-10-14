@@ -1,0 +1,35 @@
+$top-bar-height: 45px;
+
+.v-layout-w {
+    height: 100vh;
+    width: 100vw;
+}
+
+.v-top-bar {
+    height: $top-bar-height;
+    width: 100vw;
+    background-color: var(--bg-secondary);
+}
+
+.v-main-content {
+    height: calc(100vh - $top-bar-height);
+    display: flex;
+}
+
+$editor-section-w: 30vw;
+
+.v-editor-section {
+    width: $editor-section-w;
+    background-color: var(--bg-color-2);
+    resize: horizontal;
+    overflow: auto;
+}
+
+.v-visualize-section {
+    width: calc(100vw - $editor-section-w);
+    height: 100%;
+    width: 100%;
+    background-color: var(--rf-canvas-w-bg);
+    resize: horizontal;
+    overflow: auto;
+}

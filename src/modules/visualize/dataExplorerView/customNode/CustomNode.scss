@@ -1,0 +1,70 @@
+.node-contents-w {
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--rf-node-border);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        border: 1px solid var(--rf-node-border-hover);
+    }
+
+}
+
+.node-contents {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text) !important;
+}
+
+.v-n-obj {
+    align-items: start;
+}
+
+.v-node {
+    stroke: transparent !important;
+    fill: var(--rf-node-bg) !important;
+
+}
+
+.v-node-row {
+    display: flex;
+}
+
+$key-color: rgb(243, 73, 127);
+
+.v-n-key {
+    font-style: italic;
+    color: $key-color;
+    font-size: 18px;
+}
+
+.v-n-separator {
+    color: $key-color;
+    margin-right: 10px;
+}
+
+// .v-n-string {
+//     color: rgb(246, 188, 121);
+// }
+
+// .v-n-number {
+//     color: rgb(0, 255, 136);
+// }
+
+// .v-n-boolean {}
+
+// .v-n-null {}
+
+// .v-n-value {
+//     font-size: 16px;
+// }
+
+// .obj-p {
+//     line-height: 25px;
+// }

@@ -1,0 +1,58 @@
+$t-switch-height: 20px;
+$t-switch-width: 40px;
+
+.t-switch-container {
+    margin-left: 20px;
+    background-color: rgb(200, 200, 200);
+    height: $t-switch-height;
+    width: $t-switch-width;
+    border-radius: calc($t-switch-height / 2);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0 1px;
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+
+.t-switch-thumb {
+    height: calc($t-switch-height - 2px);
+    width: calc($t-switch-height - 2px);
+    border-radius: 50%;
+    background-color: white;
+    transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark {
+    .t-switch-thumb {
+        translate: calc($t-switch-height + 0px) 0;
+
+    }
+}
+
+.t-icon {
+    height: calc($t-switch-height - 7px);
+    width: calc($t-switch-height - 7px);
+}
+
+.light-ts {
+    color: black;
+    stroke-width: .2px;
+}
+
+.dark-ts {
+    color: white;
+}
+
+.dark {
+    .t-switch-container {
+        background-color: rgb(79, 78, 78);
+    }
+
+    .t-switch-thumb {
+        background-color: black;
+    }
+}
