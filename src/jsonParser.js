@@ -106,7 +106,6 @@ function constructFromObjectRoot(node, nodeList, edgeList, nodeParentId) {
       arrayTypeNodes
         ? arrayTypeNodes.push(_value)
         : (arrayTypeNodes = [_value]);
-      //   constructFromArrayRoot(_value, nodeList, edgeList, createdParentId);
     } else if (typeof _value === "object") {
       objTypeNodes ? objTypeNodes.push(_value) : (objTypeNodes = [_value]);
       //   constructFromObjectRoot(_value, nodeList, edgeList, createdParentId);
@@ -129,6 +128,13 @@ function constructFromObjectRoot(node, nodeList, edgeList, nodeParentId) {
   }
 
   //   Now, handling the branches
+  arrayTypeNodes.forEach((_node) => {
+    constructFromArrayRoot(_node, nodeList, edgeList, fullContentObjNodeId);
+  });
+
+  objTypeNodes.forEach((_node) => {
+    constructFromArrayRoot(_node, nodeList, edgeList, fullContentObjNodeId);
+  });
 }
 
 function parser(json) {
