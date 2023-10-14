@@ -1,4 +1,9 @@
-# React + TypeScript + Vite
+# JSON Visualizer
+
+### Explore you data like a wizard
+
+
+## ` Dev Under Progress `
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
