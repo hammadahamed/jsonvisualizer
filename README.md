@@ -35,3 +35,7 @@ Built this tool to learn REACT. Where's fun in learning something without buildi
 
 So thank my enthu for creating this wonderful application and also, @jsoncrack repo which gave this project idea.
 This is my own implementation using RAW Data Structures. So, No complaints on Performance difference or features ;)
+
+`What's differenct from the project's inspiration ?`
+- Better relative postitioning (Achieved with close parsing on on Raw json)
+- Better fault tolerance
