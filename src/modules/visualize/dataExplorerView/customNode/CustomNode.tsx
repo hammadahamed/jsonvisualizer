@@ -35,7 +35,7 @@ const NodeContent = (props: NodeChildProps) => {
             <>
               {Object.entries(content).map(([k, v]) => {
                 return (
-                  <p className="obj-p">
+                  <p className="obj-p" key={k}>
                     <span className="v-n-key">{k}</span>
                     <span className="v-n-separator"> : </span>
                     <span className={getClassNameByDataType(v)}>

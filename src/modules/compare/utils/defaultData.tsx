@@ -36,9 +36,7 @@
 // `;
 
 export const JSON_original = `
-
-
-   { "data":[
+   [
         "hello 1",
         "hello 2",
         ["hello 3", "helo 4"],
@@ -73,7 +71,6 @@ export const JSON_original = `
         },
         
     ],
-}
 `;
 
 export const JSON_modified = `[

@@ -83,32 +83,17 @@ function constructFromArrayRoot(node, nodeList, edgeList, nodeParentId) {
 
 function constructFromObjectRoot(node, nodeList, edgeList, nodeParentId) {
   let nodeContent;
-  let arrayTypeNodes;
-  let objTypeNodes;
+  let branchingNodes;
 
   Object.entries(node).forEach(([_key, _value]) => {
-    // console.log("===> Object entries ===> ", _key, _value, typeof _value);
-    // Construct Parent Node With key => if value is Object / Array
-    let createdParentId;
-    if (Array.isArray(_value) || typeof _value === "object") {
-      createdParentId = createNode(nodeList, _key);
-
-      if (nodeParentId != null) {
-        createEdge(nodeParentId, createdParentId, edgeList);
-      }
-    }
-
     // this ARRAY or OBJECT divergence is from this node, So save it to process later
     // after creating a node out of it, after full iteration of object elements
     // Moving to recursion in advance i.e, before creating this node, will lead to
     // falsely passing this node's parent, instead od passing this node AS THE PARENT
-    if (Array.isArray(_value)) {
-      arrayTypeNodes
-        ? arrayTypeNodes.push(_value)
-        : (arrayTypeNodes = [_value]);
-    } else if (typeof _value === "object") {
-      objTypeNodes ? objTypeNodes.push(_value) : (objTypeNodes = [_value]);
-      //   constructFromObjectRoot(_value, nodeList, edgeList, createdParentId);
+    if (Array.isArray(_value) || typeof _value === "object") {
+      branchingNodes
+        ? (branchingNodes[_key] = _value)
+        : (branchingNodes = { [_key]: _value });
     } else {
       // means a primitive, so append to CONTENT
       nodeContent != null
@@ -117,24 +102,50 @@ function constructFromObjectRoot(node, nodeList, edgeList, nodeParentId) {
     }
   });
 
-  //   Node creation with FULL CONTENT
+  // Node creation with FULL CONTENT
   let fullContentObjNodeId;
   if (nodeContent) {
-    console.log("nodeContent =>>", nodeContent, node);
     fullContentObjNodeId = createNode(nodeList, nodeContent);
     if (nodeParentId) {
       createEdge(nodeParentId, fullContentObjNodeId, edgeList);
     }
+  } else if (branchingNodes) {
+    fullContentObjNodeId = nodeParentId;
   }
 
   //   Now, handling the branches
-  arrayTypeNodes.forEach((_node) => {
-    constructFromArrayRoot(_node, nodeList, edgeList, fullContentObjNodeId);
-  });
+  if (branchingNodes)
+    Object.entries(branchingNodes).forEach(([_key, _node]) => {
+      console.log("k v  => ", _key, _node, fullContentObjNodeId);
 
-  objTypeNodes.forEach((_node) => {
-    constructFromArrayRoot(_node, nodeList, edgeList, fullContentObjNodeId);
-  });
+      let createdBranchingNodeId = createNode(nodeList, _key);
+      if (fullContentObjNodeId) {
+        createEdge(fullContentObjNodeId, createdBranchingNodeId, edgeList);
+      }
+      console.log(
+        "createdBranchingNodeId  => ",
+        _key,
+        createdBranchingNodeId,
+        typeof _node,
+        Array.isArray(_node)
+      );
+
+      if (Array.isArray(_node)) {
+        constructFromArrayRoot(
+          _node,
+          nodeList,
+          edgeList,
+          createdBranchingNodeId
+        );
+      } else if (typeof _node === "object") {
+        constructFromObjectRoot(
+          _node,
+          nodeList,
+          edgeList,
+          createdBranchingNodeId
+        );
+      }
+    });
 }
 
 function parser(json) {
@@ -152,10 +163,8 @@ function parser(json) {
   } else if (typeof parsedJson === "object") {
     constructFromObjectRoot(parsedJson, nodes, edges);
   }
-
   console.log(nodes);
   console.log(edges);
-
   return { nodes, edges };
 }
 
