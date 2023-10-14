@@ -5,28 +5,33 @@
 
 ## ` Dev Under Progress `
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application container two main features
 
-Currently, two official plugins are available:
+### `VISUALIZE`
+this is a node flow type of visualization, Put you json in the editor, And see the magic
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### `COMPARE`
+In this module, you cam compare and see differences between the text
+- Formatting is available
+- Syntax highlight
+- Choose your own colors for the difference highlight
+- Switch contents of you `original` and the `comparing` text with just a click
+- Multiple language options
+     - Plain Text
+     - Javascript
+     - Typescript
+     - JSON
+     - XML
+     - HTML
+     - CSS
+     - SCSS
+     - YAML
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Techs used
+The app use `REACT (Typescript)` for frontend and `Zustand` for the state management. 
 
-- Configure the top-level `parserOptions` property like this:
+Built this tool to learn REACT. Where's fun in learning something without building something.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+So thank my enthu for creating this wonderful application and also, @jsoncrack repo which gave this project idea.
+This is my own implementation using RAW Data Structures. So, No complaints on Performance difference of feature difference ;)
