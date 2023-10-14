@@ -34,4 +34,4 @@ The app use `REACT (Typescript)` for frontend and `Zustand` for the state manage
 Built this tool to learn REACT. Where's fun in learning something without building something.
 
 So thank my enthu for creating this wonderful application and also, @jsoncrack repo which gave this project idea.
-This is my own implementation using RAW Data Structures. So, No complaints on Performance difference of feature difference ;)
+This is my own implementation using RAW Data Structures. So, No complaints on Performance difference or features ;)
