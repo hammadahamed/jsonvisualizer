@@ -1,6 +1,8 @@
 .explorer-w {
-    height: 100%;
-    width: 100%;
+    height: calc(100vh - 55px);
+    width: calc(70vw);
+    // width: 100%;
+    position: absolute;
 }
 
 .node-parent {

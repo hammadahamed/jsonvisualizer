@@ -53,6 +53,11 @@ export const JSON_original = `
                     "pando" : "2yrs",
                     "applied materials": 1,
                     "skills": [
+                        ["key", "error"]
+                        {"desc" : "empty obj"},
+                        [{"desc 2": "empty obj in list"} 
+                        {"killer": ["bee", "8 tails"]}
+                        ]
                         "js",
                         { "React":
                             {

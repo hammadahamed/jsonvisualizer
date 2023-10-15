@@ -27,7 +27,6 @@ const MonacoComponent = (props: MonacoComponentInterface) => {
 
   useEffect(() => {
     const unsubAppThemeListener = useAppStore.subscribe((state, prevState) => {
-      console.log("App Theme subscribed", state);
       if (state.appTheme != prevState.appTheme) {
         setMonacoTheme(state.appTheme ? "light" : "vs-dark");
       }
@@ -132,7 +131,7 @@ const MonacoComponent = (props: MonacoComponentInterface) => {
               original={original}
               modified={modified}
               onMount={(_editor) => {
-                console.log("Editor Mounted");
+                console.log("DiffEditor Mounted");
                 setDiffEdtrRefInStore(_editor);
               }}
             />

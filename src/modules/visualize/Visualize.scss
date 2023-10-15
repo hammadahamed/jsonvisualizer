@@ -21,15 +21,17 @@ $editor-section-w: 30vw;
 .v-editor-section {
     width: $editor-section-w;
     background-color: var(--bg-color-2);
-    resize: horizontal;
     overflow: auto;
 }
 
 .v-visualize-section {
     width: calc(100vw - $editor-section-w);
-    height: 100%;
-    width: 100%;
+    height: calc(100vh - $top-bar-height);
     background-color: var(--rf-canvas-w-bg);
-    resize: horizontal;
     overflow: auto;
+    position: relative;
+    background-image: linear-gradient(var(--line-color-1) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, var(--line-color-1) 1.5px, transparent 1.5px),
+        linear-gradient(var(--line-color-2) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line-color-2) 1px, transparent 1px);
 }

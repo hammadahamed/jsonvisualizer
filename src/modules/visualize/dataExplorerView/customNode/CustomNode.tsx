@@ -57,11 +57,9 @@ const NodeContent = (props: NodeChildProps) => {
 interface CustomNodeProps extends Partial<NodeProps> {}
 
 const CustomNode = (props: CustomNodeProps) => {
-  //   console.log("props of node", props.properties);
   return (
     <Node rx={10} ry={10} className="v-node" {...props} labels={null as never}>
       {(event) => {
-        // console.log("node given event: ", event);
         return <NodeContent {...event}></NodeContent>;
       }}
     </Node>
