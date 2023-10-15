@@ -38,9 +38,13 @@ const MonacoComponent = (props: MonacoComponentInterface) => {
   }, []);
   const monaco = useMonaco();
 
-  const { diffEdtrRef, setDiffEdtrRef, edtrRef, setEdtrRef } = useEditorStore(
-    (state) => state
-  );
+  const {
+    diffEdtrRef,
+    setDiffEdtrRef,
+    edtrRef,
+    setEdtrRef,
+    setVisualizeContent,
+  } = useEditorStore((state) => state);
 
   const [original, setOriginal] = useState(D_DATA.JSON_original);
   const [modified, setModified] = useState(D_DATA.JSON_modified);
@@ -144,6 +148,9 @@ const MonacoComponent = (props: MonacoComponentInterface) => {
               loading={<LoadingComponent />}
               options={{ minimap: { enabled: false } }}
               value={D_DATA.JSON_original}
+              onChange={(val) => {
+                setVisualizeContent(val as string);
+              }}
               onMount={(_editor) => {
                 console.log("Editor Mounted");
                 setEdtrRefInStore(_editor);

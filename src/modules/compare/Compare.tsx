@@ -27,7 +27,7 @@ function Compare() {
 
   function switchFunction() {
     const originalVal = diffEdtrRef?.getOriginalEditor()?.getValue();
-    parser(originalVal);
+    parser(originalVal as string);
 
     // executor();
     return;

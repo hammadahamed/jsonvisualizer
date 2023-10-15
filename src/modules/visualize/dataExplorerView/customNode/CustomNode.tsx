@@ -23,6 +23,9 @@ const NodeContent = (props: NodeChildProps) => {
   return (
     <foreignObject x={0} y={0} height={props.height} width={props.width}>
       <div
+        onClick={() => {
+          console.log(props.node);
+        }}
         className="node-contents-w"
         style={{ height: props.height, width: props.width }}
       >

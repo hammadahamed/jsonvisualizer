@@ -1,9 +1,10 @@
 import { parse } from "jsonc-parser";
+import { NodeData } from "reaflow";
 
 // let sizeCache = {};
 
-export interface NodeType {
-  id: number;
+export interface NodeType extends NodeData {
+  id: string;
   height: number;
   width: number;
   text: unknown;
@@ -11,8 +12,8 @@ export interface NodeType {
 
 export interface EdgeType {
   id: string;
-  from: number;
-  to: number;
+  from: string;
+  to: string;
 }
 
 const calculateLines = (text: unknown) => {
@@ -52,7 +53,9 @@ const calculateWidthAndHeight = (str: string, single = false) => {
 };
 
 function getNodeId(nodeList: NodeType[]) {
-  return nodeList.length ? nodeList[nodeList.length - 1]?.id + 1 : 1;
+  return nodeList.length
+    ? (parseInt(nodeList[nodeList.length - 1]?.id) + 1).toString()
+    : "1";
 }
 
 function createNode(nodeList: NodeType[], text: unknown) {
@@ -66,7 +69,7 @@ function createNode(nodeList: NodeType[], text: unknown) {
   return id;
 }
 
-function createEdge(from: number, to: number, edgeList: EdgeType[]) {
+function createEdge(from: string, to: string, edgeList: EdgeType[]) {
   const id = `e${from}-${to}`;
 
   edgeList.push({
@@ -80,7 +83,7 @@ function constructFromArrayRoot(
   node: Array<unknown>,
   nodeList: NodeType[],
   edgeList: EdgeType[],
-  nodeParentId: number | null = null
+  nodeParentId: string | null = null
 ) {
   node.forEach((element) => {
     if (Array.isArray(element)) {
@@ -103,7 +106,7 @@ function constructFromObjectRoot(
   node: object | null,
   nodeList: NodeType[],
   edgeList: EdgeType[],
-  nodeParentId: number | null = null
+  nodeParentId: string | null = null
 ) {
   let nodeContent: Record<string | number, unknown> | null = null;
   let branchingNodes: Record<string | number, unknown> | null = null;
@@ -126,7 +129,7 @@ function constructFromObjectRoot(
   });
 
   // Node creation with FULL CONTENT
-  let fullContentObjNodeId: number | null;
+  let fullContentObjNodeId: string | null;
   if (nodeContent) {
     fullContentObjNodeId = createNode(nodeList, nodeContent);
     if (nodeParentId) {

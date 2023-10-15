@@ -5,12 +5,14 @@ export interface CompareModuleActions {
   setDiffEdtrRef: (diffEdtrRef: editor.IStandaloneDiffEditor | null) => void;
   setEdtrRef: (edtrRef: editor.IStandaloneCodeEditor | null) => void;
   setMonacoConfigStatus: (value: boolean) => void;
+  setVisualizeContent: (value: string) => void;
 }
 
 const initialStates = {
   diffEdtrRef: null as editor.IStandaloneDiffEditor | null,
   edtrRef: null as editor.IStandaloneCodeEditor | null,
   monacoConfigured: false,
+  visulaizeContent: null as string | null,
 };
 
 export type CompareModuleStates = typeof initialStates;
@@ -27,6 +29,9 @@ const useCompare: StateCreator<CompareModuleStates & CompareModuleActions> = (
   },
   setMonacoConfigStatus: (value: boolean) => {
     set({ monacoConfigured: value });
+  },
+  setVisualizeContent: (value: string) => {
+    set({ visulaizeContent: value });
   },
 });
 

@@ -1,23 +1,45 @@
-import { Canvas, CanvasRef, Edge, ElkRoot, MarkerArrow } from "reaflow";
+import {
+  Canvas,
+  CanvasRef,
+  Edge,
+  ElkRoot,
+  MarkerArrow,
+  NodeData,
+} from "reaflow";
 import "./DataExplorerView.scss";
 import CustomNode from "./customNode/CustomNode";
-import { useCallback, useRef, useState } from "react";
+import {
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Space, ViewPort } from "react-zoomable-ui";
 
 import * as D_DATA from "../../compare/utils/defaultData.js";
 
-import parser from "../../../jsonParser.js";
+import parser, { EdgeType } from "../../../jsonParser.js";
+import useEditorStore from "../../../stores/useEditorStore.js";
+import { NodeType } from "jsonc-parser";
 
 const DataExplorerView = () => {
   let viewPort: ViewPort | null = null;
-
-  const { nodes, edges } = parser(D_DATA.JSON_original);
+  const [nodes, setNodes] = useState([] as NodeType[]);
+  const [edges, setEdges] = useState([] as EdgeType[]);
   const ref = useRef<CanvasRef | null>(null);
-
-  const layoutOptions = {};
   const [paneWidth, setPaneWidth] = useState(0);
   const [paneHeight, setPaneHeight] = useState(0);
-  const [canvasFit, setCanvasFit] = useState(false);
+  const layoutOptions = {};
+
+  const contentJson = useEditorStore((state) => state.visulaizeContent);
+
+  useEffect(() => {
+    const { nodes, edges } = parser(contentJson ?? D_DATA.JSON_original);
+    console.log("contentGeneration => ", contentJson);
+    setNodes(nodes as unknown as SetStateAction<NodeType[]>);
+    setEdges(edges);
+  }, [contentJson]);
 
   const onLayoutChange = useCallback(
     (layout: ElkRoot) => {
@@ -42,7 +64,6 @@ const DataExplorerView = () => {
 
         setPaneWidth(layout.width + 50);
         setPaneHeight((layout.height as number) + 50);
-        setCanvasFit(true);
       }
     },
     [paneHeight, paneWidth, viewPort]
@@ -67,7 +88,7 @@ const DataExplorerView = () => {
             direction="RIGHT"
             layoutOptions={layoutOptions}
             onLayoutChange={onLayoutChange}
-            nodes={nodes}
+            nodes={nodes as unknown as NodeData[]}
             edges={edges}
             arrow={<MarkerArrow className="edge-arrow" />}
             edge={(p) => {
@@ -87,7 +108,7 @@ const DataExplorerView = () => {
             readonly={true}
             dragEdge={null}
             dragNode={null}
-            fit={canvasFit}
+            fit={true}
           />
         </Space>
       </div>
