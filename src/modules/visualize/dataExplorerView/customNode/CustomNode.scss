@@ -1,13 +1,16 @@
+$key-color: rgb(243, 73, 127);
+
 .node-contents-w {
     box-sizing: border-box;
     padding: 10px 20px;
     border-radius: 6px;
     border: 1px solid var(--rf-node-border);
     cursor: pointer;
-    transition: all .2s ease-in-out;
+    transition: all .1s ease-in-out;
 
     &.parent-node {
-        border: 1px dashed var(--rf-node-border-hover);
+        border: 1.5px dashed var(--rf-node-border-hover);
+        color: $key-color !important;
 
         &:hover {
             border: 2px solid var(--rf-node-border-hover);
@@ -40,7 +43,7 @@
 }
 
 
-$key-color: rgb(243, 73, 127);
+
 
 .v-n-key {
     // font-style: italic;
@@ -87,4 +90,13 @@ $key-color: rgb(243, 73, 127);
     margin: 2px 0;
     overflow: hidden;
     max-width: 580px;
+}
+
+.parent-node {
+    .node-contents {
+        .v-n-string {
+            color: $key-color !important;
+            font-weight: 500;
+        }
+    }
 }
