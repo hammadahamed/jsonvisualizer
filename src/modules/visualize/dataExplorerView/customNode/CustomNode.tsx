@@ -45,11 +45,11 @@ const NodeContent = (props: NodeChildProps) => {
                     <span className="v-n-key">{k}</span>
                     <span className="v-n-separator"> : </span>
                     <span className={getClassNameByDataType(v)}>
-                      {typeof v === "string" ? '" ' : null}
+                      {/* {typeof v === "string" ? "" : null} */}
                       <span className="actual-content">
                         {((v as PrimitiveOrNullType) ?? "null").toString()}
                       </span>
-                      {typeof v === "string" ? ' "' : null}
+                      {/* {typeof v === "string" ? "" : null} */}
                     </span>
                   </p>
                 );
