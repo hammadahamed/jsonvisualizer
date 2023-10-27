@@ -11,8 +11,6 @@ import JVLogo from "../../assets/jvlogo.png";
 import { Link } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
 import { configureMonaco } from "../../common/utils/configureMonaco";
-import { parse, parseTree } from "jsonc-parser";
-
 import parser from "../../jsonParser.js";
 
 function Compare() {
@@ -28,9 +26,6 @@ function Compare() {
   function switchFunction() {
     const originalVal = diffEdtrRef?.getOriginalEditor()?.getValue();
     parser(originalVal as string);
-
-    // executor();
-    return;
     const modifiedVal = diffEdtrRef?.getModifiedEditor()?.getValue();
     diffEdtrRef?.getOriginalEditor()?.setValue(modifiedVal as string);
     diffEdtrRef?.getModifiedEditor()?.setValue(originalVal as string);

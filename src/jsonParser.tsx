@@ -8,6 +8,7 @@ export interface NodeType extends NodeData {
   height: number;
   width: number;
   text: unknown;
+  isParent?: boolean;
 }
 
 export interface EdgeType {
@@ -33,10 +34,10 @@ const calculateWidthAndHeight = (str: string, single = false) => {
 
   dummyElement.style.whiteSpace = single ? "nowrap" : "pre-wrap";
   dummyElement.innerHTML = str;
-  dummyElement.style.fontSize = "22px";
+  dummyElement.style.fontSize = "20px";
   dummyElement.style.width = "fit-content";
   dummyElement.style.height = "fit-content";
-  dummyElement.style.maxWidth = "500px";
+  dummyElement.style.maxWidth = "600px";
   dummyElement.style.padding = "10px";
   dummyElement.style.fontWeight = "500";
   dummyElement.style.overflowWrap = "break-word";
@@ -44,7 +45,7 @@ const calculateWidthAndHeight = (str: string, single = false) => {
   document.body.appendChild(dummyElement);
 
   const clientRect = dummyElement.getBoundingClientRect();
-  const width = clientRect.width + 12;
+  const width = clientRect.width + 20;
   const height = clientRect.height;
 
   document.body.removeChild(dummyElement);
@@ -58,14 +59,17 @@ function getNodeId(nodeList: NodeType[]) {
     : "1";
 }
 
-function createNode(nodeList: NodeType[], text: unknown) {
+function createNode(nodeList: NodeType[], text: unknown, isParent?: boolean) {
   const id = getNodeId(nodeList);
 
   // TODO:  Implement SIZE CACHE
   const lines = calculateLines(text);
   const sizes = calculateWidthAndHeight(lines, typeof text === "string");
-
-  nodeList.push({ id, text, ...sizes });
+  const obj = { id, text, ...sizes } as NodeType;
+  if (isParent) {
+    obj.isParent = true;
+  }
+  nodeList.push(obj);
   return id;
 }
 
@@ -142,7 +146,7 @@ function constructFromObjectRoot(
   //   Now, handling the branches
   if (branchingNodes)
     Object.entries(branchingNodes).forEach(([_key, _node]) => {
-      const createdBranchingNodeId = createNode(nodeList, _key);
+      const createdBranchingNodeId = createNode(nodeList, _key, true);
       if (fullContentObjNodeId) {
         createEdge(fullContentObjNodeId, createdBranchingNodeId, edgeList);
       }
@@ -169,15 +173,15 @@ function parser(json: string) {
   //   sizeCache = {}; // resetting the size cache, else id ovveride will be caused leading to size mismatch across re-renders
   const parsedJson = parse(json);
 
-  if (!parsedJson) throw "Invlid JSON";
-
   const nodes: NodeType[] = [];
   const edges: EdgeType[] = [];
 
-  if (Array.isArray(parsedJson)) {
-    constructFromArrayRoot(parsedJson, nodes, edges);
-  } else if (typeof parsedJson === "object") {
-    constructFromObjectRoot(parsedJson, nodes, edges);
+  if (parsedJson) {
+    if (Array.isArray(parsedJson)) {
+      constructFromArrayRoot(parsedJson, nodes, edges);
+    } else if (typeof parsedJson === "object") {
+      constructFromObjectRoot(parsedJson, nodes, edges);
+    }
   }
   return { nodes, edges };
 }

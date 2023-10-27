@@ -36,12 +36,13 @@
     --text: black;
 
     --home-bg: linear-gradient(180deg, #ededed 0%, #f7f6f6 200%);
+    --home-bg: linear-gradient(180deg, #f7f6f6 0%, #f9f9f9 200%);
     --home-h-color: linear-gradient(64deg,
             rgb(76, 169, 240) 0%,
             rgb(246, 73, 139) 100%);
-
-    --nav-bg: rgb(255, 255, 255);
     --nav-text: black;
+    --nav-bg: rgb(255, 255, 255);
+    --thubmnail-border: rgb(203, 203, 203);
 
     --button-bg: rgb(235, 235, 235);
     --button-text: black;
@@ -70,9 +71,9 @@
     --home-h-color: linear-gradient(64deg,
             rgb(117, 195, 255) 0%,
             rgb(255, 92, 154) 100%);
-
     --nav-bg: rgb(19, 19, 19);
     --nav-text: white;
+    --thubmnail-border: rgb(41, 41, 41);
 
     --button-bg: rgb(29, 29, 29);
     --button-text: rgb(219, 219, 219);

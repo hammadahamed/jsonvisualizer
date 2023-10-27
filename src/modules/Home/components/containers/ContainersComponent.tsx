@@ -3,7 +3,9 @@ import "./ContainersComponent.scss";
 import { HiArrowRight } from "react-icons/hi";
 
 import CompareThumbnail from "../../../../assets/compare_thumbnail.png";
+import CompareThumbnailLight from "../../../../assets/compare_thumbnail_light.png";
 import VisualizeThumbnail from "../../../../assets/visualize_thumbnail.png";
+import VisualizeThumbnailLight from "../../../../assets/visualize_thumbnail_light.png";
 import useAppStore from "../../../../stores/useAppStore";
 
 export default function ContainersComponent() {
@@ -15,7 +17,10 @@ export default function ContainersComponent() {
         <div className="hp-c-w">
           <div className="border-div">
             <div className="visualize-c-hp hp-c">
-              <img src={VisualizeThumbnail} alt="" />
+              <img
+                src={appTheme ? VisualizeThumbnailLight : VisualizeThumbnail}
+                alt=""
+              />
             </div>
           </div>
 
@@ -28,7 +33,10 @@ export default function ContainersComponent() {
         <div className="hp-c-w">
           <div className="border-div">
             <div className="compare-c-hp hp-c">
-              <img src={CompareThumbnail} alt="" />
+              <img
+                src={appTheme ? CompareThumbnailLight : CompareThumbnail}
+                alt=""
+              />
             </div>
           </div>
           <Link to={"/compare"} style={{ textDecoration: "none" }}>

@@ -1,13 +1,21 @@
 .node-contents-w {
     box-sizing: border-box;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 6px;
     border: 1px solid var(--rf-node-border);
     cursor: pointer;
     transition: all .2s ease-in-out;
 
+    &.parent-node {
+        border: 1px dashed var(--rf-node-border-hover);
+
+        &:hover {
+            border: 2px solid var(--rf-node-border-hover);
+        }
+    }
+
     &:hover {
-        border: 1px solid var(--rf-node-border-hover);
+        border: 1.5px solid var(--rf-node-border-hover);
     }
 
 }
@@ -29,17 +37,13 @@
 .v-node {
     stroke: transparent !important;
     fill: var(--rf-node-bg) !important;
-
 }
 
-.v-node-row {
-    display: flex;
-}
 
 $key-color: rgb(243, 73, 127);
 
 .v-n-key {
-    font-style: italic;
+    // font-style: italic;
     color: $key-color;
     font-size: 18px;
 }
@@ -53,18 +57,34 @@ $key-color: rgb(243, 73, 127);
 //     color: rgb(246, 188, 121);
 // }
 
-// .v-n-number {
-//     color: rgb(0, 255, 136);
-// }
+.v-n-number {
+    // color: rgb(0, 255, 136);
+    font-weight: 200;
+}
 
-// .v-n-boolean {}
+.v-n-boolean {
+    color: rgb(157, 170, 203);
+    background: var(--rf-node-border);
+    border-radius: 3px;
+    padding: 0px 10px;
+
+    .actual-content {
+        transform: translate(0px, -1px);
+        display: inline-block;
+        font-style: italic;
+    }
+}
 
 // .v-n-null {}
 
-// .v-n-value {
-//     font-size: 16px;
-// }
+.v-n-value {
+    font-size: 16px;
+}
 
-// .obj-p {
-//     line-height: 25px;
-// }
+.obj-p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 2px 0;
+    overflow: hidden;
+    max-width: 580px;
+}

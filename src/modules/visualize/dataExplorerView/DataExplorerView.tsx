@@ -36,14 +36,12 @@ const DataExplorerView = () => {
 
   useEffect(() => {
     const { nodes, edges } = parser(contentJson ?? D_DATA.JSON_original);
-    console.log("contentGeneration => ", contentJson);
     setNodes(nodes as unknown as SetStateAction<NodeType[]>);
     setEdges(edges);
   }, [contentJson]);
 
   const onLayoutChange = useCallback(
     (layout: ElkRoot) => {
-      console.log("ran layout call back");
       if (layout.width && layout.height) {
         const areaSize = layout.width * layout.height;
         const changeRatio = Math.abs(

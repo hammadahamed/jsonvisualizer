@@ -1,7 +1,8 @@
 import { NodeProps, Node, NodeChildProps } from "reaflow";
 import "./CustomNode.scss";
+import { NodeType } from "../../../../jsonParser";
 
-type PrimitiveOrNullType = "boolean" | "string" | "number" | "null";
+type PrimitiveOrNullType = boolean | string | number | null;
 
 const getClassNameByDataType = (data: unknown): string => {
   let className = "";
@@ -26,7 +27,9 @@ const NodeContent = (props: NodeChildProps) => {
         onClick={() => {
           console.log(props.node);
         }}
-        className="node-contents-w"
+        className={`node-contents-w ${
+          (props.node as unknown as NodeType).isParent ? "parent-node" : ""
+        }`}
         style={{ height: props.height, width: props.width }}
       >
         <div className={`node-contents ${isObj ? "v-n-obj" : ""}`}>
@@ -43,7 +46,9 @@ const NodeContent = (props: NodeChildProps) => {
                     <span className="v-n-separator"> : </span>
                     <span className={getClassNameByDataType(v)}>
                       {typeof v === "string" ? '" ' : null}
-                      {v as PrimitiveOrNullType}
+                      <span className="actual-content">
+                        {((v as PrimitiveOrNullType) ?? "null").toString()}
+                      </span>
                       {typeof v === "string" ? ' "' : null}
                     </span>
                   </p>
@@ -61,7 +66,7 @@ interface CustomNodeProps extends Partial<NodeProps> {}
 
 const CustomNode = (props: CustomNodeProps) => {
   return (
-    <Node rx={10} ry={10} className="v-node" {...props} labels={null as never}>
+    <Node rx={6} ry={6} className="v-node" {...props} labels={null as never}>
       {(event) => {
         return <NodeContent {...event}></NodeContent>;
       }}

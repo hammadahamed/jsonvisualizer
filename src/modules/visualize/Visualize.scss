@@ -16,7 +16,7 @@ $top-bar-height: 45px;
     display: flex;
 }
 
-$editor-section-w: 30vw;
+$editor-section-w: 25vw;
 
 .v-editor-section {
     width: $editor-section-w;
@@ -30,8 +30,4 @@ $editor-section-w: 30vw;
     background-color: var(--rf-canvas-w-bg);
     overflow: auto;
     position: relative;
-    background-image: linear-gradient(var(--line-color-1) 1.5px, transparent 1.5px),
-        linear-gradient(90deg, var(--line-color-1) 1.5px, transparent 1.5px),
-        linear-gradient(var(--line-color-2) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line-color-2) 1px, transparent 1px);
 }

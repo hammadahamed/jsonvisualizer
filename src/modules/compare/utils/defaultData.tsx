@@ -35,47 +35,70 @@
 // ]
 // `;
 
-export const JSON_original = `
-   [
-        "hello 1",
-        "hello 2",
-        ["hello 3", "helo 4"],
-        {
-            "company": "Amazon.com",
-            "description": "Amazon.com, Inc. is an online retailer in North America and internationally. The company serves consumers through its retail Web sites and focuses on selection, price, and convenience.",
-            "initial_price": 89.38,
-            "price_2002": 17.01,
-            "price_2007": 93.43,
-            "symbol": "AMZN",
-            "object child": {
-                "fname": "william",
-                "experiecnce" : {
-                    "pando" : "2yrs",
-                    "applied materials": 1,
-                    "skills": [
-                        ["key", "error"]
-                        {"desc" : "empty obj"},
-                        [{"desc 2": "empty obj in list"} 
-                        {"killer": ["bee", "8 tails"]}
-                        ]
-                        "js",
-                        { "React":
-                            {
-                                "version": 1.1,
-                                 "rating": "5/4",
-                            }
-                        },
-                         "Vue",
-                          "Mongo",
-                        ],
-                }
-            },
-            "array child": [
-                "Allahu", "Akbar"
-            ]
-        },
-        
-    ],
+export const JSON_original = `{
+    "heroes": [
+      {
+        "name": "Iron Man",
+        "superpowers": [
+          {
+            "power": "Superhuman strength",
+            "level": "Mk XLVII"
+          },
+          {
+            "power": "Flight",
+            "level": "Mk XLVII"
+          },
+          {
+            "power": "Energy Projection",
+            "level": "Mk XLVII"
+          }
+        ],
+        "special_attacks": [
+          {
+            "attack_name": "Repulsor Blast",
+            "damage": "High",
+            "cooldown": "30 seconds"
+          },
+          {
+            "attack_name": "Unibeam",
+            "damage": "Extreme",
+            "cooldown": "2 minutes"
+          }
+        ],
+        "family_members": ["Pepper Potts (Partner)", "Morgan Stark (Daughter)"]
+      },
+      {
+        "name": "Spider-Man",
+        "superpowers": [
+          {
+            "power": "Wall-Crawling",
+            "level": "Enhanced"
+          },
+          {
+            "power": "Superhuman Agility",
+            "level": "Enhanced"
+          },
+          {
+            "power": "Spider-Sense",
+            "level": "Enhanced"
+          }
+        ],
+        "special_attacks": [
+          {
+            "attack_name": "Web Strike",
+            "damage": "Moderate",
+            "cooldown": "15 seconds"
+          },
+          {
+            "attack_name": "Web Swing",
+            "damage": "Low",
+            "cooldown": "10 seconds"
+          }
+        ],
+        "family_members": ["Aunt May (Aunt)", "Uncle Ben (Uncle)"]
+      }
+    ]
+  }
 `;
 
 export const JSON_modified = `[
