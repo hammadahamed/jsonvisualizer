@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
 import { configureMonaco } from "../../common/utils/configureMonaco";
 import parser from "../../jsonParser.js";
+import SiteAnouncement from "../../common/components/siteAnouncement/siteAnoucement.js";
 
 function Compare() {
   const [language, setLanguage] = useState(languageList[1]);
@@ -35,6 +36,8 @@ function Compare() {
     <>
       {/* TOP BAR */}
       <div className="compare-w">
+        <SiteAnouncement />
+
         <div className="top-bar">
           {/* LEFT */}
           <div className="top-left">

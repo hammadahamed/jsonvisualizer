@@ -1,11 +1,13 @@
 import "./HomeComponent.scss";
 import ContainersComponent from "./components/containers/ContainersComponent";
 import NavBar from "../../common/components/navBar/NavBar";
+import SiteAnouncement from "../../common/components/siteAnouncement/siteAnoucement";
 
 export default function HomeComponent() {
   return (
     <>
-      <div>
+      <div className="home-w">
+        <SiteAnouncement />
         <NavBar />
         <div className="nav-bar"></div>
         <div className="main-content">

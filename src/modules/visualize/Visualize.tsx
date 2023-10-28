@@ -11,6 +11,7 @@ import MonacoComponent from "../compare/components/monacoComponent/MonacoCompone
 import { languageList } from "../../common/constants/constants";
 import useEditorStore from "../../stores/useEditorStore";
 import DataExplorerView from "./dataExplorerView/DataExplorerView";
+import SiteAnouncement from "../../common/components/siteAnouncement/siteAnoucement";
 
 const Visualize = () => {
   const [language, setLanguage] = useState(languageList[1]);
@@ -26,6 +27,8 @@ const Visualize = () => {
   return (
     <>
       <div className="v-layout-w">
+        <SiteAnouncement />
+
         {/* Styles for this top bar lies in the compare.tsx file. 
         copy past the component alone if changed 
         
