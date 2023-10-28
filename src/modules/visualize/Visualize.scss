@@ -41,11 +41,6 @@ $editor-section-w: 25vw;
     overflow: auto;
     position: relative;
 
-
-}
-
-.v-editor-section,
-.v-visualize-section {
     @media only screen and (max-width: 768px) {
         width: 100%;
         height: 65%;
