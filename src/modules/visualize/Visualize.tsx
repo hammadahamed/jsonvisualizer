@@ -11,8 +11,7 @@ import MonacoComponent from "../compare/components/monacoComponent/MonacoCompone
 import { languageList } from "../../common/constants/constants";
 import useEditorStore from "../../stores/useEditorStore";
 import DataExplorerView from "./dataExplorerView/DataExplorerView";
-import SiteAnouncement from "../../common/components/siteAnouncement/siteAnoucement";
-
+import SiteAnouncement from "../../common/components/siteAnouncement/SiteAnouncement";
 const Visualize = () => {
   const [language, setLanguage] = useState(languageList[1]);
   const { monacoConfigured, setMonacoConfigStatus } = useEditorStore(

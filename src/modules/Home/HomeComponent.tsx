@@ -1,8 +1,7 @@
 import "./HomeComponent.scss";
 import ContainersComponent from "./components/containers/ContainersComponent";
 import NavBar from "../../common/components/navBar/NavBar";
-import SiteAnouncement from "../../common/components/siteAnouncement/siteAnoucement";
-
+import SiteAnouncement from "../../common/components/siteAnouncement/SiteAnouncement";
 export default function HomeComponent() {
   return (
     <>
