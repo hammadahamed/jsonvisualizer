@@ -15,16 +15,18 @@ import {
   useRef,
   useState,
 } from "react";
-import { Space, ViewPort } from "react-zoomable-ui";
+import { Space } from "react-zoomable-ui";
 
 import * as D_DATA from "../../compare/utils/defaultData.js";
 
 import parser, { EdgeType } from "../../../jsonParser.js";
 import useEditorStore from "../../../stores/useEditorStore.js";
 import { NodeType } from "jsonc-parser";
+import useAppStore from "../../../stores/useAppStore.js";
 
 const DataExplorerView = () => {
-  let viewPort: ViewPort | null = null;
+  const viewPort = useAppStore((state) => state.viewPort);
+  const setViewPort = useAppStore((state) => state.setViewPort);
   const [nodes, setNodes] = useState([] as NodeType[]);
   const [edges, setEdges] = useState([] as EdgeType[]);
   const ref = useRef<CanvasRef | null>(null);
@@ -48,17 +50,20 @@ const DataExplorerView = () => {
           (areaSize * 100) / (paneWidth * paneHeight) - 100
         );
 
-        setTimeout(() => {
-          if (paneHeight === 0 || paneWidth === 0 || changeRatio > 70) {
-            const canvas = document.querySelector(
-              ".json-v-canvas"
-            ) as HTMLElement | null;
+        setTimeout(
+          () => {
+            if (paneHeight === 0 || paneWidth === 0 || changeRatio > 70) {
+              const canvas = document.querySelector(
+                ".json-v-canvas"
+              ) as HTMLElement | null;
 
-            if (canvas) {
-              viewPort?.camera?.centerFitElementIntoView(canvas);
+              if (canvas) {
+                viewPort?.camera?.centerFitElementIntoView(canvas);
+              }
             }
-          }
-        });
+          },
+          paneWidth < 400 ? 1000 : 0
+        );
 
         setPaneWidth(layout.width + 50);
         setPaneHeight((layout.height as number) + 50);
@@ -73,9 +78,9 @@ const DataExplorerView = () => {
         <Space
           onContextMenu={(e) => e.preventDefault()}
           pollForElementResizing
-          treatTwoFingerTrackPadGesturesLikeTouch={true}
+          treatTwoFingerTrackPadGesturesLikeTouch={false}
           onCreate={(val) => {
-            viewPort = val;
+            setViewPort(val);
           }}
         >
           <Canvas
