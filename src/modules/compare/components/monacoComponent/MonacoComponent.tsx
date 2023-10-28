@@ -55,8 +55,7 @@ const MonacoComponent = (props: MonacoComponentInterface) => {
   );
 
   const windowWidth = useRef(window.innerWidth);
-  const fontSize =
-    windowWidth.current < 400 ? 10 : windowWidth.current < 700 ? 12 : 14;
+  const fontSize = windowWidth.current < 400 ? 10 : 12;
 
   const options = {
     minimap: { enabled: false },
