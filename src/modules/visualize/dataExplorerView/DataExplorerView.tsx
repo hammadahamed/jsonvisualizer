@@ -62,7 +62,7 @@ const DataExplorerView = () => {
               }
             }
           },
-          paneWidth < 400 ? 1000 : 0
+          paneWidth < 400 ? 100 : 0
         );
 
         setPaneWidth(layout.width + 50);

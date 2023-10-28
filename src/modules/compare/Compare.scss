@@ -42,6 +42,11 @@
     display: flex;
     gap: 20px;
     padding: 20px;
+
+    @media only screen and (max-width: 768px) {
+        padding: 2px;
+    }
+
     background-color: var(--bg-color-2);
 }
 

@@ -8,7 +8,7 @@ import ColorSelectorComponent, {
 } from "../colorSelector/ColorSelectorComponent";
 import * as D_DATA from "../../utils/defaultData";
 import { LiaUndoAltSolid } from "react-icons/lia";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Languages } from "../../../../common/constants/constants";
 import useEditorStore from "../../../../stores/useEditorStore";
 import useAppStore from "../../../../stores/useAppStore";
@@ -54,9 +54,19 @@ const MonacoComponent = (props: MonacoComponentInterface) => {
     themeData as editor.IStandaloneThemeData
   );
 
+  const windowWidth = useRef(window.innerWidth);
+  const fontSize =
+    windowWidth.current < 400 ? 10 : windowWidth.current < 700 ? 12 : 14;
+
+  const options = {
+    minimap: { enabled: false },
+    fontSize,
+  };
+
   const diffEditorOptions: editor.IDiffEditorConstructionOptions = {
     enableSplitViewResizing: true,
     originalEditable: true,
+    fontSize,
   };
 
   function diffColorSetter(color: Palette, insertionColors: boolean) {
@@ -146,7 +156,7 @@ const MonacoComponent = (props: MonacoComponentInterface) => {
               theme={monacoTheme}
               language={language.id}
               loading={<LoadingComponent />}
-              options={{ minimap: { enabled: false } }}
+              options={options}
               value={D_DATA.JSON_original}
               onChange={(val) => {
                 setVisualizeContent(val as string);
