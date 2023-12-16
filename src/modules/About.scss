@@ -1,0 +1,75 @@
+.about-w {
+    height: 90vh;
+    position: relative;
+
+    .contents-w {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contents-c {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        text-align: left;
+
+        $home-h-color: linear-gradient(64deg,
+                rgb(76, 169, 240) 0%,
+                rgb(246, 73, 139) 100%);
+
+        .about-title {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            background-image: $home-h-color;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: animated-gradient 5s ease-in-out infinite;
+            font-family: "Inter-Bold", "Inter", sans-serif;
+            line-height: 1.2em;
+            font-weight: 600;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        @keyframes animated-gradient {
+
+            0%,
+            100% {
+                background-position: 40% 50%;
+            }
+        }
+
+        .div {
+            height: 10px;
+        }
+
+        .j-crack {
+            margin: 0 5px;
+            background-color: black;
+            padding: 4px 10px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all .1s ease;
+
+            &:hover {
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            &.no {
+                font-size: 16px;
+                translate: -10px 0px;
+
+                &:hover {
+                    cursor: default;
+                }
+            }
+        }
+    }
+}

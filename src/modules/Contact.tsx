@@ -16,8 +16,10 @@ const Contact = () => {
       <div className="contact-wrapper">
         <p className="wannah-hire">Want to hire me ?</p>
 
-        <p className="reach-out">Feel free to reach me out !</p>
         <br />
+        <br />
+        <p className="reach-out">Feel free to reach me out !</p>
+
         <br />
         <div className="social-hanldes-w">
           <img
@@ -49,6 +51,8 @@ const Contact = () => {
             style={{ backgroundColor: "#66bb6a" }}
           />
         </div>
+        <br />
+        <br />
       </div>
     </div>
   );

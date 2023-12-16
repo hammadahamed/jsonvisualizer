@@ -14,10 +14,13 @@ const NavBar = () => {
         <div className="nav-c">
           <div className="nav-left half">
             <h1 className="nav-logo">
-              <img className="logo-img" src={JVLogo} alt="" />
+              <Link to="/">
+                <img className="logo-img" src={JVLogo} alt="" />
+              </Link>
             </h1>
-
-            <div className="screen-l logo-title">JSON Visualizer</div>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <div className="screen-l logo-title">JSON Visualizer</div>
+            </Link>
           </div>
 
           <div className="nav-right half">
