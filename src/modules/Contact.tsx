@@ -1,5 +1,9 @@
 import NavBar from "../common/components/navBar/NavBar";
 import "./Contact.scss";
+import LinkedinSVG from "../assets/linkedin.svg";
+import GmailSVG from "../assets/gmail.svg";
+import GithubPNG from "../assets/github.png";
+import UpworkSVG from "../assets/upwork.svg";
 
 const Contact = () => {
   const openLink = (link: string) => {
@@ -20,19 +24,19 @@ const Contact = () => {
             onClick={() =>
               openLink("https://www.linkedin.com/in/hammadahamed/")
             }
-            src="/src/assets/linkedin.svg"
+            src={LinkedinSVG}
             className="circle-avatars"
             style={{ backgroundColor: "#0078d4" }}
           />
           <img
             onClick={() => openLink("mailto: hammadahamed786@gmail.com")}
-            src="/src/assets/gmail.svg"
+            src={GmailSVG}
             className="circle-avatars"
             style={{ padding: "8px", backgroundColor: "white" }}
           />
           <img
             onClick={() => openLink("https://github.com/hammadahamed")}
-            src="/src/assets/github.png"
+            src={GithubPNG}
             className="circle-avatars"
             style={{ backgroundColor: "white", padding: "6px" }}
           />
@@ -40,7 +44,7 @@ const Contact = () => {
             onClick={() =>
               openLink("https://www.upwork.com/freelancers/~015b6c83414c827b01")
             }
-            src="/src/assets/upwork.svg"
+            src={UpworkSVG}
             className="circle-avatars"
             style={{ backgroundColor: "#66bb6a" }}
           />
