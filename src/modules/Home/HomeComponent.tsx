@@ -11,7 +11,7 @@ export default function HomeComponent() {
         <div className="nav-bar"></div>
         <div className="main-content">
           <div className="animate-gradient-text">
-            Explore your data like Pro
+            Explore your data like a Pro
           </div>
           <div className="h-subtitle">Blazing fast, Easy visualisation</div>
           <ContainersComponent></ContainersComponent>
