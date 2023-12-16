@@ -1,75 +1,80 @@
-.contact-wrapper {
-    translate: 0 -30px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    $home-h-color: linear-gradient(64deg,
-            rgb(76, 169, 240) 0%,
-            rgb(246, 73, 139) 100%);
+.contact-w {
+    background: var(--home-bg);
 
-    .wannah-hire {
+    .contact-wrapper {
+        translate: 0 -30px;
+        height: 100vh;
         display: flex;
-        justify-content: center;
-        text-align: center;
-        background-image: $home-h-color;
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-        animation: animated-gradient 5s ease-in-out infinite;
-        font-weight: 500;
-        font-size: 50px;
-        font-family: "Inter-Bold", "Inter", sans-serif;
-        letter-spacing: -2.4px;
-        line-height: 1.2em;
-    }
-
-    @keyframes animated-gradient {
-
-        0%,
-        100% {
-            background-position: 40% 50%;
-        }
-    }
-
-    .reach-out {
-        font-size: 16px;
-    }
-
-    $avartar-diameter: 50px;
-    $avartar-diameter-lg: 36px;
-
-    $avartar-diameter-mob: 25px;
-    $avartar-diameter-mob-lg: 30px;
-
-
-    .social-hanldes-w {
-        display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        column-gap: 30px;
+        justify-content: center;
+        $home-h-color: linear-gradient(64deg,
+                rgb(76, 169, 240) 0%,
+                rgb(246, 73, 139) 100%);
 
-        .circle-avatars {
-            z-index: 10000000;
-            height: $avartar-diameter-mob;
-            width: $avartar-diameter-mob;
+        .wannah-hire {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            background-image: $home-h-color;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: animated-gradient 5s ease-in-out infinite;
+            font-weight: 500;
+            font-size: 50px;
+            font-family: "Inter-Bold", "Inter", sans-serif;
+            letter-spacing: -2.4px;
+            line-height: 1.2em;
+        }
 
-            @media only screen and (min-width: 768px) {
-                height: $avartar-diameter;
-                width: $avartar-diameter;
+        @keyframes animated-gradient {
+
+            0%,
+            100% {
+                background-position: 40% 50%;
+            }
+        }
+
+        .reach-out {
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        $avartar-diameter: 50px;
+        $avartar-diameter-lg: 36px;
+
+        $avartar-diameter-mob: 40px;
+        $avartar-diameter-mob-lg: 30px;
+
+
+        .social-hanldes-w {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 30px;
+
+            .circle-avatars {
+                z-index: 10000000;
+                height: $avartar-diameter-mob;
+                width: $avartar-diameter-mob;
+
+                @media only screen and (min-width: 768px) {
+                    height: $avartar-diameter;
+                    width: $avartar-diameter;
+                }
+
+                border-radius: 50%;
+                background-color: red;
+                cursor: pointer;
+                transition: all 0.15s ease-in-out;
+                box-sizing: border-box;
             }
 
-            border-radius: 50%;
-            background-color: red;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
-            box-sizing: border-box;
-        }
-
-        .circle-avatars:hover {
-            scale: 1.1;
-            transform: translate(0, -2.5px);
+            .circle-avatars:hover {
+                scale: 1.1;
+                transform: translate(0, -2.5px);
+            }
         }
     }
 }
