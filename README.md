@@ -1,7 +1,8 @@
 # JSON Visualizer
 
 ### Explore you data like a wizard
-
+<img width="1512" alt="Screenshot 2023-12-16 at 8 20 04 PM" src="https://github.com/hammadahamed/jsonvisualizer/assets/64712526/dabcb6e7-8890-471c-8251-999aaab1e7ea">
+checkout the website at https://jsonvisualizer-v2.web.app/
 
 ## ` Dev Under Progress `
 
