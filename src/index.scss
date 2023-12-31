@@ -58,13 +58,17 @@
     --rf-node-bg: rgb(255, 255, 255);
     --rf-node-border: rgb(221, 221, 221);
     --rf-node-border-hover: rgb(152, 152, 152);
+    --key-color: rgb(243, 73, 127);
+
+
+
 }
 
 // ---- DARK
 [data-theme="dark"] {
-    --bg-color: rgb(20, 20, 20);
-    --bg-color-2: rgb(27, 27, 27);
-    --bg-secondary: rgb(35, 35, 35);
+    --bg-color: rgb(19, 19, 19);
+    --bg-color-2: rgb(20, 20, 20);
+    --bg-secondary: rgb(24, 24, 24);
     --text: white;
 
     --home-bg: linear-gradient(180deg, #1d1d1d 0%, #0f0f0f 200%);
@@ -83,11 +87,14 @@
     --edtr-line-number-color: white;
 
     // REAFLOW 
-    --rf-canvas-w-bg: rgb(24, 24, 24);
-    --arrow-line: rgb(106, 106, 106);
+    --rf-canvas-w-bg: rgb(21, 21, 21);
+    --arrow-line: rgb(51, 51, 51);
     --rf-node-bg: rgb(32, 32, 32);
-    --rf-node-border: rgb(45, 45, 45);
-    --rf-node-border-hover: rgb(152, 152, 152);
+    --rf-node-border: rgba(31, 31, 31, 0.281);
+    --rf-node-border-hover: rgb(95, 95, 95);
+
+    // --key-color: rgb(172, 131, 211);
+    --key-color: rgb(131, 170, 211);
 }
 
 body {

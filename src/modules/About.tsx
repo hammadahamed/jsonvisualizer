@@ -35,7 +35,7 @@ const About = () => {
             <img src={REACT_SVG} alt="" />
           </div>
           <br />
-          <p className="j-crack no"> Why not learn by building a project !?!</p>
+          <p className="j-crack  no">Why not learn by building a project !?!</p>
           <div className="div"></div>
           <p>
             So I built something inspired from{" "}
