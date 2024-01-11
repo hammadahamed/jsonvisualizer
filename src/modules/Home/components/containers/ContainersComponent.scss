@@ -30,11 +30,19 @@ $containerHeight: 300px;
     height: $containerHeight;
     width: $containerHeight;
     border-radius: 20px;
+    cursor: pointer;
+
 
     img {
         height: $containerHeight;
         border-radius: 15px;
         object-fit: cover;
+        transition: all .2s ease;
+        cursor: pointer;
+
+        &:hover {
+            scale: 1.05;
+        }
     }
 }
 
@@ -63,18 +71,21 @@ $containerHeight: 300px;
     height: min-content;
     font-weight: 600;
     font-size: 15px;
-    transition-duration: 400ms;
     text-decoration: none !important;
+    transition: all .2s ease !important;
     color: white;
+    translate: 0px 0px;
+
 }
 
 .module-button:hover {
+    transition: all .2s ease !important;
     cursor: pointer;
 
-
     .arrow-right {
-        transition: all .3s ease-in-out;
-        translate: 8px 0px;
+        transition: all .2s ease !important;
+
+        translate: 4px 0px;
     }
 }
 

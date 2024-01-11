@@ -47,6 +47,7 @@
     // font-style: italic;
     color: var(--key-color);
     font-size: 18px;
+    font-weight: 500;
 }
 
 .v-n-separator {
@@ -60,7 +61,10 @@
 
 .v-n-number {
     // color: rgb(0, 255, 136);
-    font-weight: 200;
+    font-style: italic;
+    background-color: var(--value-n-bg);
+    padding: 1px 10px;
+    border-radius: 4px;
 }
 
 .v-n-boolean {
@@ -80,6 +84,7 @@
 
 .v-n-value {
     font-size: 16px;
+    color: var(--value-color)
 }
 
 .obj-p {

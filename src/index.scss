@@ -58,10 +58,9 @@
     --rf-node-bg: rgb(255, 255, 255);
     --rf-node-border: rgb(221, 221, 221);
     --rf-node-border-hover: rgb(152, 152, 152);
-    --key-color: rgb(243, 73, 127);
-
-
-
+    --key-color: #2c8a7e;
+    --value-color: #0e0e0e;
+    --value-n-bg: rgba(0, 0, 0, 0.07);
 }
 
 // ---- DARK
@@ -71,7 +70,7 @@
     --bg-secondary: rgb(24, 24, 24);
     --text: white;
 
-    --home-bg: linear-gradient(180deg, #1d1d1d 0%, #0f0f0f 200%);
+    --home-bg: linear-gradient(180deg, #191919 0%, #0f0f0f 200%);
     --home-h-color: linear-gradient(64deg,
             rgb(117, 195, 255) 0%,
             rgb(255, 92, 154) 100%);
@@ -89,15 +88,28 @@
     // REAFLOW 
     --rf-canvas-w-bg: rgb(21, 21, 21);
     --arrow-line: rgb(51, 51, 51);
-    --rf-node-bg: rgb(32, 32, 32);
+    --rf-node-bg: rgb(35, 35, 35);
     --rf-node-border: rgba(31, 31, 31, 0.281);
     --rf-node-border-hover: rgb(95, 95, 95);
 
     // --key-color: rgb(172, 131, 211);
-    --key-color: rgb(131, 170, 211);
+    // --key-color: rgb(131, 170, 211);
+    --key-color: #a2a2db;
+    --value-color: #ececec;
+    --value-n-bg: rgba(0, 0, 0, 0.295);
 }
 
 body {
     margin: 0;
     padding: 0;
+}
+
+.monaco-editor {
+    &.vs-dark {
+
+        .monaco-editor-background,
+        .margin-view-overlays {
+            background: rgb(23, 23, 23);
+        }
+    }
 }

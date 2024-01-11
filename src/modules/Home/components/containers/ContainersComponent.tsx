@@ -17,10 +17,12 @@ export default function ContainersComponent() {
         <div className="hp-c-w">
           <div className="border-div">
             <div className="visualize-c-hp hp-c">
-              <img
-                src={appTheme ? VisualizeThumbnailLight : VisualizeThumbnail}
-                alt=""
-              />
+              <Link to={"/visualize"} style={{ textDecoration: "none" }}>
+                <img
+                  src={appTheme ? VisualizeThumbnailLight : VisualizeThumbnail}
+                  alt=""
+                />
+              </Link>
             </div>
           </div>
 
@@ -33,10 +35,12 @@ export default function ContainersComponent() {
         <div className="hp-c-w">
           <div className="border-div">
             <div className="compare-c-hp hp-c">
-              <img
-                src={appTheme ? CompareThumbnailLight : CompareThumbnail}
-                alt=""
-              />
+              <Link to={"/compare"} style={{ textDecoration: "none" }}>
+                <img
+                  src={appTheme ? CompareThumbnailLight : CompareThumbnail}
+                  alt=""
+                />
+              </Link>
             </div>
           </div>
           <Link to={"/compare"} style={{ textDecoration: "none" }}>
