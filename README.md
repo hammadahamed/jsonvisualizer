@@ -2,6 +2,8 @@
 
 ### Explore you data like a wizard
 <img width="1512" alt="Screenshot 2023-12-16 at 8 20 04 PM" src="https://github.com/hammadahamed/jsonvisualizer/assets/64712526/dabcb6e7-8890-471c-8251-999aaab1e7ea">
+<img width="1728" alt="Screenshot 2025-02-07 at 10 49 58 AM" src="https://github.com/user-attachments/assets/faf412da-5364-4ace-bfc0-4006743553fc" />
+
 checkout the website at https://jsonvisualizer-v2.web.app/
 
 ## ` Dev Under Progress `
